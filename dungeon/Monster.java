@@ -1,14 +1,5 @@
 package dungeon;
 
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 
 public abstract class Monster extends DungeonCharacter
 {
@@ -26,7 +17,7 @@ public abstract class Monster extends DungeonCharacter
 	this.maxHeal = maxHeal;
 	this.minHeal = minHeal;
 
-  }//end monster construcotr
+  }//end monster constructor
 
 //-----------------------------------------------------------------
   public void heal()
