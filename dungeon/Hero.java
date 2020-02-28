@@ -58,19 +58,15 @@ Returns: nothing
 This method calls: defend() or base version of method
 This method is called by: attack() from base class
 ---------------------------------------------------------*/
-public void subtractHitPoints(int hitPoints)
-	{
-		if (defend())
-		{
-			System.out.println(name + " BLOCKED the attack!");
-		}
-		else
-		{
-			super.subtractHitPoints(hitPoints);
-		}
-
-
-	}//end method
+  public void adjustHitPoints(int hitPoints){
+		if (hitPoints < 0){
+			super.adjustHitPoints(hitPoints);
+	}else if(defend()){
+		System.out.println(getName() + " BLOCKED the attack!");
+	}else{
+		super.adjustHitPoints(hitPoints);
+	}
+}//end method
 
 /*-------------------------------------------------------
 battleChoices will be overridden in derived classes.  It computes the

@@ -1,11 +1,20 @@
-Dungeon.java has a lot of functionality. Suffers from Large Class
-Flesh out MonsterFactory(Final Project Implementation)-Deleted the original method, moved creation to its own class
-Flesh out HeroFactory(Final Project Implementation)-Done-Deleted the original method, moved creation to its own class
-Apply Getters and Setters
-Check the comparable implementation on DungeonCharacter for necessity-
-Generalize battleChoices to separate the amount of additional and slightly redundant code-Generalize special abilities as special() then override in individual hero class
-Deprecate Keyboard.java to Scanner implementation-
-Strategy Pattern for Attack Interface(Final Project Implementation)
-Add Hitpoints and Subtract Hitpoints are the same concept, just negative and positive-
-Consider removing IsAlive() DungeonCharacter method. Has its uses but perhaps can be handled differently
-test
+1.Dungeon.java has a lot of functionality. Suffers from Large Class
+	Moved Creation aspects to their own factory methods
+	Moved battle mechanics to a class called battle
+	
+2.Create Factories(Final Project Implementation)
+	Moved to their own class
+
+3.Apply Getters and Setters
+	
+4.Check the comparable implementation on DungeonCharacter for necessity
+	Removed comparable and compareTo method. They were unused
+
+5.Generalize battleChoices to separate the amount of additional and slightly redundant code-Generalize special abilities as special() then override in individual hero class
+
+6.Deprecate Keyboard.java to Scanner implementation
+
+7.Strategy Pattern for Attack Interface(Final Project Implementation)
+
+8.Add Hitpoints and Subtract Hitpoints are the same concept, just negative and positive
+	Created a single method called adjustHitpoints that handles the values
