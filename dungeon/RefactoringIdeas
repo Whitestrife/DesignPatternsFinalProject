@@ -19,3 +19,6 @@
 
 8.Add Hitpoints and Subtract Hitpoints are the same concept, just negative and positive
 	Created a single method called adjustHitpoints that handles the changes
+9. Switch statements code refactor (Going to ask tom about this one to make sure)
+
+10. 
