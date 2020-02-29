@@ -6,6 +6,7 @@
 	Moved to their own class
 
 3.Apply Getters and Setters
+	Changed variables to private
 	
 4.Check the comparable implementation on DungeonCharacter for necessity
 	Removed comparable and compareTo method. They were unused
@@ -17,4 +18,4 @@
 7.Strategy Pattern for Attack Interface(Final Project Implementation)
 
 8.Add Hitpoints and Subtract Hitpoints are the same concept, just negative and positive
-	Created a single method called adjustHitpoints that handles the values
+	Created a single method called adjustHitpoints that handles the changes

@@ -18,8 +18,8 @@ public class Thief extends Hero
 		if (surprise <= .4)
 		{
 			System.out.println("Surprise attack was successful!\n" +
-								name + " gets an additional turn.");
-			numTurns++;
+								getName() + " gets an additional turn.");
+			setTurns(getTurns()+1);
 			attack(opponent);
 		}//end surprise
 		else if (surprise >= .9)
@@ -57,11 +57,11 @@ public class Thief extends Hero
 			        System.out.println("invalid choice!");
 		    }//end switch
 
-			numTurns--;
-			if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
+			setTurns(getTurns()-1);
+			if (getTurns() > 0)
+			    System.out.println("Number of turns remaining is: " + getTurns());
 
-		} while(numTurns > 0);
+		} while(getTurns() > 0);
 
     }
 }

@@ -1,14 +1,5 @@
 package dungeon;
 
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 public class Gremlin extends Monster
 {
 
@@ -20,7 +11,7 @@ public class Gremlin extends Monster
 
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " jabs his kris at " +
+		System.out.println(getName() + " jabs his kris at " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 
