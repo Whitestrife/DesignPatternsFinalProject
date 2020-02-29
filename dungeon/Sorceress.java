@@ -21,9 +21,9 @@ public class Sorceress extends Hero
 
 		hPoints = (int)(Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
 		adjustHitPoints(-hPoints);
-		System.out.println(name + " added [" + hPoints + "] points.\n"
+		System.out.println(getName() + " added [" + hPoints + "] points.\n"
 							+ "Total hit points remaining are: "
-							+ hitPoints);
+							+ getHitPoints());
 		 System.out.println();
 
     }//end increaseHitPoints method
@@ -31,7 +31,7 @@ public class Sorceress extends Hero
 //-----------------------------------------------------------------
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " casts a spell of fireball at " +
+		System.out.println(getName() + " casts a spell of fireball at " +
 							opponent.getName() + ":");
 		super.attack(opponent);
 	}//end override of attack method
@@ -59,11 +59,11 @@ public class Sorceress extends Hero
 			        System.out.println("invalid choice!");
 		    }//end switch
 
-			numTurns--;
-		    if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
+			setTurns(getTurns()-1);
+		    if (getTurns() > 0)
+			    System.out.println("Number of turns remaining is: " + getTurns());
 
-		} while(numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
+		} while(getTurns() > 0 && getHitPoints() > 0 && opponent.getHitPoints() > 0);
 
     }//end overridden method
 

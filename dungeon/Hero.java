@@ -2,8 +2,8 @@ package dungeon;
 
 public abstract class Hero extends DungeonCharacter
 {
-	protected double chanceToBlock;
-	protected int numTurns;
+	private double chanceToBlock;
+	private int numTurns;
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
@@ -28,7 +28,7 @@ This method is called by: hero constructor
   public void readName()
   {
 		System.out.print("Enter character name: ");
-		name = Keyboard.readString();
+		setName(Keyboard.readString());
   }//end readName method
 
 /*-------------------------------------------------------
@@ -67,6 +67,14 @@ This method is called by: attack() from base class
 		super.adjustHitPoints(hitPoints);
 	}
 }//end method
+  
+  public int getTurns() {
+	  return numTurns;
+  }
+  
+  public void setTurns(int turns) {
+	  this.numTurns = turns;
+  }
 
 /*-------------------------------------------------------
 battleChoices will be overridden in derived classes.  It computes the
@@ -82,7 +90,7 @@ This method is called by: external sources
 ---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent)
 	{
-	    numTurns = attackSpeed/opponent.getAttackSpeed();
+	    numTurns = getAttackSpeed()/opponent.getAttackSpeed();
 
 		if (numTurns == 0)
 			numTurns++;

@@ -4,11 +4,11 @@ package dungeon;
 public abstract class DungeonCharacter
 {
 
-	protected String name;
-	protected int hitPoints;
-	protected int attackSpeed;
-	protected double chanceToHit;
-	protected int damageMin, damageMax;
+	private String name;
+	private int hitPoints;
+	private int attackSpeed;
+	private double chanceToHit;
+	private int damageMin, damageMax;
 
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
@@ -42,6 +42,30 @@ public abstract class DungeonCharacter
 	{
 		return attackSpeed;
 	}//end getAttackSpeed
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setAttackSpeed(int attackSpeed) {
+		this.attackSpeed = attackSpeed;
+	}
+	
+	public void setHitPoints(int hitPoints) {
+		this.hitPoints = hitPoints;
+	}
+	
+	public void setChanceToHit(double chanceToHit) {
+		this.chanceToHit = chanceToHit;
+	}
+	
+	public void setDamageMin(int dmgMin) {
+		this.damageMin = dmgMin;
+	}
+	
+	public void setDamageMax(int dmgMax) {
+		this.damageMax = dmgMax;
+	}
 
 	public void adjustHitPoints(int hitPoints)
 	{
