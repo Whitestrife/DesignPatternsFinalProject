@@ -13,7 +13,7 @@ public abstract class DungeonCharacter
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
-	private DungeonCharacter(String name, int hitPoints, int attackSpeed,
+	DungeonCharacter(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax)
 	{
 
