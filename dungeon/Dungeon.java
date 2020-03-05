@@ -1,5 +1,6 @@
 package dungeon;
 
+import java.util.Scanner;
 
 public class Dungeon
 {
@@ -13,8 +14,8 @@ public class Dungeon
 		
 		do
 		{
-		    theHero = HeroFactory.chooseHero();
-		    theMonster = MonsterFactory.generateMonster();
+		    theHero = HeroFactory.createHero();
+		    theMonster = MonsterFactory.CreateMonster();
 			Battle.battle(theHero, theMonster);
 
 		} while (playAgain());
@@ -27,12 +28,12 @@ true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
 	public static boolean playAgain()
 	{
-		char again;
+		char again[];
 
 		System.out.println("Play again (y/n)?");
-		again = Keyboard.readChar();
+		again = scan.next().toCharArray();
 
-		return (again == 'Y' || again == 'y');
+		return (again[0] == 'Y' || again[0] == 'y');
 	}//end playAgain method
 
 	public static Scanner getscanner()
