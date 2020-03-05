@@ -46,18 +46,7 @@ This method is called by: subtractHitPoints()
 
   }//end defend method
 
-/*-------------------------------------------------------
-subtractHitPoints checks to see if hero blocked attack, if so a message
-is displayed, otherwise base version of this method is invoked to
-perform the subtraction operation.  This method overrides the method
-inherited from DungeonCharacter promoting polymorphic behavior
 
-Receives: hit points to subtract
-Returns: nothing
-
-This method calls: defend() or base version of method
-This method is called by: attack() from base class
----------------------------------------------------------*/
   public void adjustHitPoints(int hitPoints){
 		if (hitPoints < 0){
 			super.adjustHitPoints(hitPoints);

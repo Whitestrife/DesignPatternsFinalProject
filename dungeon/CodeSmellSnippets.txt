@@ -1,0 +1,122 @@
+1. Large Class Code Smell for Dungeon.java 
+   Code Snippet:
+   public class Dungeon
+	{
+    	public static void main(String[] args)
+		{ }
+		public static boolean playAgain()
+		{ }
+		public static void battle(Hero theHero, Monster theMonster)
+		{ }
+	}
+Dungeon class is too complex and the battle() method can be moved to its own class.
+
+2. Factory Method refactor
+   Code Snippet: 
+   public class Dungeon
+	{
+    	public static void main(String[] args)
+		{ }
+		public static Hero chooseHero()
+		{ }
+		public static Monster generateMonster()
+		{ }
+		public static boolean playAgain()
+		{ }
+		public static void battle(Hero theHero, Monster theMonster)
+		{ }
+	}
+Removed the ChooseHero() and generateMonster() methods from Dungeon and moved them to their own respective class. 
+generateMonster() was moved to the MonsterFactory class. chooseHero() was moved to the HeroFactory Class. 
+	
+3. Change Variables to Private.
+	Code Snippet:
+	public abstract class DungeonCharacter implements Comparable
+{
+	protected String name;
+	protected int hitPoints;
+	protected int attackSpeed;
+	protected double chanceToHit;
+	protected int damageMin, damageMax;
+}
+Changed these variables to private instead of protected. 
+
+4. Removal of compareTo method because it was unused and was just returning 1 and didn't seem complete anyways.
+	Code snippet:
+	public abstract class DungeonCharacter implements Comparable
+{
+	public int compareTo(Object o)
+	{
+		return 1;
+	}
+}
+
+5. Change battlechoices() ... work on this
+	Code Snippet:
+public abstract class Hero extends DungeonCharacter
+{
+	public void battleChoices(DungeonCharacter opponent)
+	{
+	    numTurns = getAttackSpeed()/opponent.getAttackSpeed();
+
+		if (numTurns == 0)
+			numTurns++;
+
+		System.out.println("Number of turns this round is: " + numTurns);
+
+	}
+}
+
+6. Deleted Keyboard class and refactored using scanner.
+	Code Snippet:
+	public class Keyboard
+	{  }
+
+7. Attack interface refactor for attacks
+	Code Snippet:
+
+8. Combinatorial Explosion code smell for the AddHitpoints and SubtractHitpoints methods.
+	Code Snippet:
+	public void subtractHitPoints(int hitPoints)
+	{ }
+	public void addHitPoints(int hitPoints)
+	{ }
+These two methods were combined into one called adjustHitpoints() that combines functionality and reduces duplicate code and unnecessary complication.
+
+9. Possible Switch statement Code refactor, which will only be added on toms approval on Friday.
+	Code Snippet: 
+	public static Monster generateMonster()
+	{
+		switch(choice)
+		{
+			case 1: return new Ogre();
+
+			case 2: return new Gremlin();
+
+			case 3: return new Skeleton();
+
+			default: System.out.println("invalid choice, returning Skeleton");
+				     return new Skeleton();
+		}//end switch
+	}
+	public static Hero chooseHero()
+	{
+		switch(choice)
+		{
+			case 1: return new Warrior();
+
+			case 2: return new Sorceress();
+
+			case 3: return new Thief();
+
+			default: System.out.println("invalid choice, returning Thief");
+				     return new Thief();
+		}//end switch
+	}
+	
+10. Renamed fields and methods to more accurately represent their function and to eliminate and comments as they are code smells.
+	Code Snippet: 
+	public void adjustHitPoints(int hitPoints) {}
+	
+	Renamed the following methods and variables
+	
