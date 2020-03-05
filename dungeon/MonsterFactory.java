@@ -2,7 +2,7 @@ package dungeon;
 
 public class MonsterFactory {
 	
-	public static Monster generateMonster()
+	public static Monster CreateMonster()
 	{
 		int choice;
 

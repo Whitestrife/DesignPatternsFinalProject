@@ -1,24 +1,26 @@
 1.Dungeon.java has a lot of functionality. Suffers from Large Class
 	Moved Creation aspects to their own factory methods
 	Moved battle mechanics to a class called battle
-	
-2.Create Factories(Final Project Implementation)
-	Moved to their own class
 
+2.Create Factories(Final Project Implementation)
+	Moved to their own class 
+	
 3.Apply Getters and Setters
 	Changed variables to private
 	
 4.Check the comparable implementation on DungeonCharacter for necessity
 	Removed comparable and compareTo method. They were unused
-
+	
 5.Generalize battleChoices to separate the amount of additional and slightly redundant code-Generalize special abilities as special() then override in individual hero class
-
+	
 6.Deprecate Keyboard.java to Scanner implementation
-
+	
 7.Strategy Pattern for Attack Interface(Final Project Implementation)
-
+	
 8.Add Hitpoints and Subtract Hitpoints are the same concept, just negative and positive
 	Created a single method called adjustHitpoints that handles the changes
+	
 9. Switch statements code refactor (Going to ask tom about this one to make sure)
         Looked into this, the complexity of the Switch statement dictates whether it is a code smell. Less complex, the less egregious smell
-10. 
+	
+10. rename fields

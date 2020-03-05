@@ -4,7 +4,7 @@ package dungeon;
 public class Warrior extends Hero
 {
 
-    public Warrior()
+    Warrior()
 	{
 
 		super("Warrior", 125, 4, .8, 35, 60, .2);

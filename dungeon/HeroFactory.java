@@ -2,7 +2,7 @@ package dungeon;
 
 public class HeroFactory {
 	
-	public static Hero chooseHero()
+	public static Hero createHero()
 	{
 		int choice;
 
@@ -10,7 +10,7 @@ public class HeroFactory {
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
-		choice = Keyboard.readInt();
+		choice = Dungeon.getscanner().nextInt();
 
 		switch(choice)
 		{

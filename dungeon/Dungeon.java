@@ -3,12 +3,14 @@ package dungeon;
 
 public class Dungeon
 {
+	static Scanner scan = new Scanner(System.in);
+	
     public static void main(String[] args)
 	{
 
 		Hero theHero;
 		Monster theMonster;
-
+		
 		do
 		{
 		    theHero = HeroFactory.chooseHero();
@@ -33,4 +35,8 @@ true if the user chooses to continue, false otherwise.
 		return (again == 'Y' || again == 'y');
 	}//end playAgain method
 
+	public static Scanner getscanner()
+	{
+		return scan;
+	}
 }//end Dungeon class
