@@ -7,7 +7,7 @@ public abstract class Monster extends DungeonCharacter
 	protected int minHeal, maxHeal;
 
 //-----------------------------------------------------------------
-   private Monster(String name, int hitPoints, int attackSpeed,
+   Monster(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, double chanceToHeal,
 					 int damageMin, int damageMax,
 					 int minHeal, int maxHeal)

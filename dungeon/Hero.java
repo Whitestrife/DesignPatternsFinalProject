@@ -7,7 +7,7 @@ public abstract class Hero extends DungeonCharacter
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
-  public Hero(String name, int hitPoints, int attackSpeed,
+  Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax,
 					 double chanceToBlock)
   {

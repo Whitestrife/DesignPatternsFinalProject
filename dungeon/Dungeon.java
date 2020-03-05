@@ -1,5 +1,6 @@
 package dungeon;
 
+import java.util.Scanner;
 
 public class Dungeon
 {
@@ -30,7 +31,7 @@ true if the user chooses to continue, false otherwise.
 		char again;
 
 		System.out.println("Play again (y/n)?");
-		again = Keyboard.readChar();
+		again = scan.nextLine();
 
 		return (again == 'Y' || again == 'y');
 	}//end playAgain method
