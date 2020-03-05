@@ -28,7 +28,7 @@ This method is called by: hero constructor
   public void readName()
   {
 		System.out.print("Enter character name: ");
-		setName(Keyboard.readString());
+		setName(Dungeon.getscanner().next());
   }//end readName method
 
 /*-------------------------------------------------------
@@ -87,5 +87,7 @@ This method is called by: external sources
 		System.out.println("Number of turns this round is: " + numTurns);
 
 	}//end battleChoices
+
+	public abstract void special(DungeonCharacter opponent);
 
 }//end Hero class
