@@ -39,7 +39,7 @@ generateMonster() was moved to the MonsterFactory class. chooseHero() was moved 
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
 }
-Changed these variables to private instead of protected. 
+Changed these variables to private instead of protected. Changed constructors to private for all types of heroes and monsters. 
 
 4. Removal of compareTo method because it was unused and was just returning 1 and didn't seem complete anyways.
 	Code snippet:
@@ -117,6 +117,8 @@ These two methods were combined into one called adjustHitpoints() that combines 
 10. Renamed fields and methods to more accurately represent their function and to eliminate and comments as they are code smells.
 	Code Snippet: 
 	public void adjustHitPoints(int hitPoints) {}
+	public static Monster generateMonster() {} to CreateMonster
+	public static Hero chooseHero() {} to CreateHero
 	
 	Renamed the following methods and variables
 	
