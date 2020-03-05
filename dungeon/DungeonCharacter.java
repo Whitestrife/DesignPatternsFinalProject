@@ -10,9 +10,7 @@ public abstract class DungeonCharacter
 	private double chanceToHit;
 	private int damageMin, damageMax;
 
-//-----------------------------------------------------------------
-//explicit constructor to initialize instance variables -- it is called
-// by derived classes
+
 	DungeonCharacter(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax)
 	{
@@ -90,32 +88,13 @@ public abstract class DungeonCharacter
 
 	}//end method
 
-/*-------------------------------------------------------
-isAlive is used to see if a character is still alive by checking hit points
 
-Receives: nothing
-Returns: true is hero is alive, false otherwise
-
-This method calls: nothing
-This method is called by: unknown (intended for external use)
----------------------------------------------------------*/
     public boolean isAlive()
 	{
 	  return (hitPoints > 0);
 	}//end isAlive method
 
-/*-------------------------------------------------------
-attack allows character to attempt attack on opponent.  First, chance to hit
-is considered.  If a hit can occur, then the damage is calculated based on
-character's damage range.  This damage is then applied to the opponenet.
 
-Receives: opponent being attacked
-Returns: nothing
-
-This method calls: Math.random(), subtractHitPoints()
-This method is called by: overridden versions of the method in monster and
-hero classes and externally
----------------------------------------------------------*/
 	public void attack(DungeonCharacter opponent)
 	{
 		boolean canAttack;

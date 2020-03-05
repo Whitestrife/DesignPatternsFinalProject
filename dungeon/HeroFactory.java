@@ -2,7 +2,7 @@ package dungeon;
 
 public class HeroFactory {
 	
-	public static Hero createHero()
+	public static Hero CreateHero()
 	{
 		int choice;
 

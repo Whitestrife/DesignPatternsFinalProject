@@ -14,18 +14,15 @@ public class Dungeon
 		
 		do
 		{
-		    theHero = HeroFactory.chooseHero();
-		    theMonster = MonsterFactory.generateMonster();
+		    theHero = HeroFactory.CreateHero();
+		    theMonster = MonsterFactory.CreateMonster();
 			Battle.battle(theHero, theMonster);
 
 		} while (playAgain());
 
-    }//end main method
+    }
 
-/*-------------------------------------------------------------------
-playAgain allows gets choice from user to play another game.  It returns
-true if the user chooses to continue, false otherwise.
----------------------------------------------------------------------*/
+    
 	public static boolean playAgain()
 	{
 		char again;
@@ -34,10 +31,11 @@ true if the user chooses to continue, false otherwise.
 		again = scan.nextLine();
 
 		return (again == 'Y' || again == 'y');
-	}//end playAgain method
+	}
 
+	
 	public static Scanner getscanner()
 	{
 		return scan;
 	}
-}//end Dungeon class
+}
