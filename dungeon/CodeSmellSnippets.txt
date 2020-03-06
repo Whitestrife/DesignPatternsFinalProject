@@ -51,7 +51,7 @@ Changed these variables to private instead of protected. Changed constructors to
 	}
 }
 
-5. Change battlechoices() ... work on this
+5. Change battlechoices() 
 	Code Snippet:
 public abstract class Hero extends DungeonCharacter
 {
@@ -72,8 +72,10 @@ public abstract class Hero extends DungeonCharacter
 	public class Keyboard
 	{  }
 
+
 7. Attack interface refactor for attacks
 	Code Snippet:
+
 
 8. Combinatorial Explosion code smell for the AddHitpoints and SubtractHitpoints methods.
 	Code Snippet:
@@ -83,42 +85,12 @@ public abstract class Hero extends DungeonCharacter
 	{ }
 These two methods were combined into one called adjustHitpoints() that combines functionality and reduces duplicate code and unnecessary complication.
 
-9. Possible Switch statement Code refactor, which will only be added on toms approval on Friday.
-	Code Snippet: 
-	public static Monster generateMonster()
-	{
-		switch(choice)
-		{
-			case 1: return new Ogre();
-
-			case 2: return new Gremlin();
-
-			case 3: return new Skeleton();
-
-			default: System.out.println("invalid choice, returning Skeleton");
-				     return new Skeleton();
-		}//end switch
-	}
-	public static Hero chooseHero()
-	{
-		switch(choice)
-		{
-			case 1: return new Warrior();
-
-			case 2: return new Sorceress();
-
-			case 3: return new Thief();
-
-			default: System.out.println("invalid choice, returning Thief");
-				     return new Thief();
-		}//end switch
-	}
 	
-10. Renamed fields and methods to more accurately represent their function and to eliminate and comments as they are code smells.
+9. Renamed fields and methods to more accurately represent their function and to eliminate and comments as they are code smells.
 	Code Snippet: 
 	public void adjustHitPoints(int hitPoints) {}
 	public static Monster generateMonster() {} to CreateMonster
 	public static Hero chooseHero() {} to CreateHero
 	
-	Renamed the following methods and variables
+	Renamed the following methods and variables. makes more sense than generateMonster and chooseHero because they are both creating heroes/monsters.
 	
