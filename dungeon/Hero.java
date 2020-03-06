@@ -14,6 +14,7 @@ public abstract class Hero extends DungeonCharacter
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 	this.chanceToBlock = chanceToBlock;
 	readName();
+	
   }
 
 /*-------------------------------------------------------
@@ -29,6 +30,7 @@ This method is called by: hero constructor
   {
 		System.out.print("Enter character name: ");
 		setName(Dungeon.getscanner().next());
+		SpellPool.setHero(this);
   }//end readName method
 
 /*-------------------------------------------------------
