@@ -28,7 +28,8 @@ Dungeon class is too complex and the battle() method can be moved to its own cla
 	}
 Removed the ChooseHero() and generateMonster() methods from Dungeon and moved them to their own respective class. 
 generateMonster() was moved to the MonsterFactory class. chooseHero() was moved to the HeroFactory Class. 
-	
+
+
 3. Change Variables to Private.
 	Code Snippet:
 	public abstract class DungeonCharacter implements Comparable
@@ -41,6 +42,7 @@ generateMonster() was moved to the MonsterFactory class. chooseHero() was moved 
 }
 Changed these variables to private instead of protected. Changed constructors to private for all types of heroes and monsters. 
 
+
 4. Removal of compareTo method because it was unused and was just returning 1 and didn't seem complete anyways.
 	Code snippet:
 	public abstract class DungeonCharacter implements Comparable
@@ -51,30 +53,28 @@ Changed these variables to private instead of protected. Changed constructors to
 	}
 }
 
-5. Change battlechoices() 
+
+5. Moved battlechoices() to battle class so code won't be duplicated across the different Heroes classes.
 	Code Snippet:
-public abstract class Hero extends DungeonCharacter
-{
-	public void battleChoices(DungeonCharacter opponent)
-	{
-	    numTurns = getAttackSpeed()/opponent.getAttackSpeed();
+public void battleChoices(DungeonCharacter opponent)
+	{ }
 
-		if (numTurns == 0)
-			numTurns++;
-
-		System.out.println("Number of turns this round is: " + numTurns);
-
-	}
-}
 
 6. Deleted Keyboard class and refactored using scanner.
 	Code Snippet:
 	public class Keyboard
 	{  }
+Used scan as a class level variable in Dungeon and made a getScanner() method to utilize the scanner throughout the project.
 
 
-7. Attack interface refactor for attacks
+7. Attack interface refactor for attacks.
 	Code Snippet:
+	public interface Attack 
+	{
+	public void attack(DungeonCharacter opponent);
+	public void special(DungeonCharacter opponent);
+	}
+Added a new Attack interface for the attack() method and Special Method().
 
 
 8. Combinatorial Explosion code smell for the AddHitpoints and SubtractHitpoints methods.
