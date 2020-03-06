@@ -66,6 +66,14 @@ public abstract class DungeonCharacter
 	public void setDamageMax(int dmgMax) {
 		this.damageMax = dmgMax;
 	}
+	
+	public int getDamageMin() {
+		return damageMin;
+	}
+	
+	public int getDamageMax() {
+		return damageMax;
+	}
 
 	public void adjustHitPoints(int hitPoints)
 	{
