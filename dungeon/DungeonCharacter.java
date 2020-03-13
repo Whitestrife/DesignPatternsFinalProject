@@ -1,6 +1,6 @@
 package dungeon;
 
-
+//Removed comparable implementation, it is not utilized anywhere other than to have the compareTo method
 public abstract class DungeonCharacter
 {
 
@@ -13,7 +13,7 @@ public abstract class DungeonCharacter
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
-	DungeonCharacter(String name, int hitPoints, int attackSpeed,
+	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax)
 	{
 
@@ -47,16 +47,12 @@ public abstract class DungeonCharacter
 		this.name = name;
 	}
 	
+	public void setHitPoints(int hp) {
+		this.hitPoints = hp;
+	}
+	
 	public void setAttackSpeed(int attackSpeed) {
 		this.attackSpeed = attackSpeed;
-	}
-	
-	public void setHitPoints(int hitPoints) {
-		this.hitPoints = hitPoints;
-	}
-	
-	public void setChanceToHit(double chanceToHit) {
-		this.chanceToHit = chanceToHit;
 	}
 	
 	public void setDamageMin(int dmgMin) {
@@ -67,6 +63,14 @@ public abstract class DungeonCharacter
 		this.damageMax = dmgMax;
 	}
 	
+	public void setChanceToHit(double cth) {
+		this.chanceToHit = cth;
+	}
+	
+	public double getChanceToHit() {
+		return chanceToHit;
+	}
+	
 	public int getDamageMin() {
 		return damageMin;
 	}
@@ -74,11 +78,12 @@ public abstract class DungeonCharacter
 	public int getDamageMax() {
 		return damageMax;
 	}
-
+	
 	public void adjustHitPoints(int hitPoints)
 	{
-		if (hitPoints <0) {
+		if (hitPoints < 0) {
 			this.hitPoints -= hitPoints;
+			System.out.println("Healed for " + -hitPoints);
 		}
 		else if (hitPoints >0)
 		{
