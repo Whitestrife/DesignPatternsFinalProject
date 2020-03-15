@@ -1,5 +1,4 @@
 package dungeon;
-
 import java.util.Scanner;
 
 public class GameStateManager {
@@ -8,32 +7,34 @@ public class GameStateManager {
 	private static int[] currentRoom;
 	private static Hero theHero;
 	private static Scanner scan = new Scanner(System.in);
+	private static Caretaker caretaker;
+	private static Originator originator;
 
 	public static void stateSetup() {
-		statesHolder state = InitializeGame.BuildGame();
-		theHero = state.theHero;
-		gameDungeon = state.dungeon;
-		currentRoom = state.currRoom;
 		
-		exploredMap();
-		startGame();
+		caretaker = new Caretaker();
+		originator = new Originator();
+		
+		System.out.println("Would you like to load from a previous save?\n"
+						+  "1. Yes\n"
+						+  "2. No\n");
+		int choice = getInt();
+		if(choice == 1) {
+			SaveLoadSystem.loadGame();
+		}else {
+			statesHolder state = InitializeGame.BuildGame();
+			setTheHero(state.theHero);
+			setGameDungeon(state.dungeon);
+			setCurrentRoom(state.currRoom);
+			
+			MapBehavior.exploredMap();
+			startGame();	
+		}
 		
 	}
 	
 	public static void startGame() {
 		theHero.nonBattleChoices();
-	}
-	
-	public static Scanner getScanner() {
-		return scan;
-	}
-	
-	public static int[] getCurrentRoom() {
-		return currentRoom;
-	}
-	
-	public static Hero getHero() {
-		return theHero;
 	}
 	
 	public static int getInt() {
@@ -86,77 +87,7 @@ public class GameStateManager {
 			System.out.println("This room feels familiar");
 		}
 		
-		exploredMap();
-	}
-
-	public static void visionPotionReveal() {
-		
-		try{gameDungeon[currentRoom[0]][currentRoom[1]-1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]+1][currentRoom[1]-1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]+1][currentRoom[1]].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]+1][currentRoom[1]+1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]][currentRoom[1]+1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]-1][currentRoom[1]+1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]-1][currentRoom[1]].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		try{gameDungeon[currentRoom[0]-1][currentRoom[1]-1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
-		
-		exploredMap();
-	}
-	
-	public static void fullMapReveal() {
-		for(Room[] r : gameDungeon) {
-			for(Room rm : r) {
-				rm.temporaryReveal = true;
-			}
-		}
-		exploredMap();		 		 	
-	}
-	
-	public static void resetVisionPotion() {
-		for(Room[] r : gameDungeon) {
-			for(Room rm : r) {
-				rm.temporaryReveal = false;
-			}
-		}
-	}
-	
-	public static void exploredMap() {
-		
-		int i = 0;
-		
-		for(i = 0; i <= ((gameDungeon.length*2)); i++) {
-			System.out.print("*");
-		}
-		System.out.println();
-		System.out.print("*");
-		
-		for(int j = 0; j < gameDungeon.length-1; j++) {
-			
-			for(i = 0; i < (gameDungeon.length-1);i++) {
-				System.out.print(gameDungeon[i][j].getRoomType() + "|");
-			}
-			System.out.print(gameDungeon[i][j].getRoomType());
-			System.out.print("*\n");
-			System.out.print("*");
-			
-			for(i = 0; i < (gameDungeon.length);i++) {
-				System.out.print("-*");
-			}
-			System.out.println();
-			System.out.print("*");
-		}
-		
-		for(i = 0; i < (gameDungeon.length-1);i++) {
-			System.out.print(gameDungeon[i][gameDungeon.length-1].getRoomType() + "|");
-		}
-		System.out.print(gameDungeon[i][gameDungeon.length-1].getRoomType());
-		System.out.print("*\n");
-		
-		for(i = 0; i <= ((gameDungeon.length*2)); i++) {
-			System.out.print("*");
-		}
-		System.out.println();
-		
+		MapBehavior.exploredMap();
 	}
 	
 	public static void winGame() {
@@ -167,6 +98,10 @@ public class GameStateManager {
 			System.exit(0);
 		}
 	}
+	
+	public static void gameOver() {
+		SaveLoadSystem.loadGame();
+	}
 
 	public static void hiddenMenu() {
 		
@@ -174,16 +109,19 @@ public class GameStateManager {
 						 + "Choose your Cheat!\n"
 						 + "1. Full Dungeon Reveal\n"
 						 + "2. God Mode\n"
-						 + "3. Big Head Mode");
+						 + "3. Big Head Mode\n"
+						 + "4. Save Game\n");
 		
 		int choice = getInt();
 		switch (choice)
 	    {
-		    case 1: fullMapReveal();
+		    case 1: MapBehavior.fullMapReveal();
 		    	break;
 		    case 2: godMode();
 		        break;
 		    case 3: System.out.println("Just look in the mirror.");
+		    	break;
+		    case 4: SaveLoadSystem.saveGame();
 		    	break;
 		    default:
 		        System.out.println("\nNo Valid Option Selected \n=================\n");
@@ -198,5 +136,41 @@ public class GameStateManager {
 		theHero.setDamageMax(200);
 		theHero.setChanceToHit(1);
 		
+	}
+	
+	public static Room[][] getDungeon(){
+		return gameDungeon;
+	}
+	
+	public static Scanner getScanner() {
+		return scan;
+	}
+	
+	public static int[] getCurrentRoom() {
+		return currentRoom;
+	}
+	
+	public static Hero getHero() {
+		return theHero;
+	}
+
+	public static Originator getOriginator() {
+		return originator;
+	}
+
+	public static Caretaker getCaretaker() {
+		return caretaker;
+	}
+
+	public static void setTheHero(Hero theHero) {
+		GameStateManager.theHero = theHero;
+	}
+
+	public static void setCurrentRoom(int[] currentRoom) {
+		GameStateManager.currentRoom = currentRoom;
+	}
+
+	public static void setGameDungeon(Room[][] gameDungeon) {
+		GameStateManager.gameDungeon = gameDungeon;
 	}
 }
