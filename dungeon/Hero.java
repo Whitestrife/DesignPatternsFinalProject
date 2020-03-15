@@ -2,8 +2,7 @@ package dungeon;
 
 public abstract class Hero extends DungeonCharacter
 {
-	private double chanceToBlock;
-	private double trueBlock;
+	private double chanceToBlock, trueBlock;
 	private int numTurns, cooldownTimer, timerMax;
 	private ItemBag itemBag;
 	protected boolean loading, hadEncapsulation, hadAbstraction, hadPolymorphism, hadInheritance = false;
@@ -146,7 +145,7 @@ public abstract class Hero extends DungeonCharacter
 				System.out.println("3. Check Status");
 				System.out.print("Choose an option: ");
 		    
-				GameStateManager.resetVisionPotion();
+				MapBehavior.resetVisionPotion();
 
 				choice = GameStateManager.getInt();
 				
