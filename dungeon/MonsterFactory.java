@@ -1,13 +1,10 @@
 package dungeon;
 
 public class MonsterFactory {
+
 	
-	public static Monster CreateMonster()
-	{
-		int choice;
-
-		choice = (int)(Math.random() * 3) + 1;
-
+	public static Monster createMonster(int choice) {
+		
 		switch(choice)
 		{
 			case 1: return new Ogre();
@@ -16,9 +13,7 @@ public class MonsterFactory {
 
 			case 3: return new Skeleton();
 
-			default: System.out.println("invalid choice, returning Skeleton");
-				     return new Skeleton();
-		}//end switch
-	}//end generateMonster method
-
+			default: return new Skeleton();
+		}
+	}
 }
