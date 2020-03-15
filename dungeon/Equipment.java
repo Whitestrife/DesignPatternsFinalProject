@@ -1,6 +1,8 @@
 package dungeon;
 
-public abstract class Equipment {
+import java.io.Serializable;
+
+public abstract class Equipment implements Serializable{
 	
 	public abstract String getDescription();
 	public boolean isEquipped;

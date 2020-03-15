@@ -1,9 +1,10 @@
 package dungeon;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ItemBag{
+public class ItemBag implements Serializable{
 	
 	ArrayList<Items> combatBag = new ArrayList<Items>();
 	ArrayList<Items> nonCombatBag = new ArrayList<Items>();

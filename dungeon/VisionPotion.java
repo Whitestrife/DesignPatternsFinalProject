@@ -9,6 +9,17 @@ public class VisionPotion extends Items{
 	}
 	
 	public void useItem(Hero theHero, DungeonCharacter theMonster) {
-		GameStateManager.visionPotionReveal();
+		Room[][] gameDungeon = GameStateManager.getDungeon();
+		int[] currentRoom = GameStateManager.getCurrentRoom();
+		try{gameDungeon[currentRoom[0]][currentRoom[1]-1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]+1][currentRoom[1]-1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]+1][currentRoom[1]].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]+1][currentRoom[1]+1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]][currentRoom[1]+1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]-1][currentRoom[1]+1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]-1][currentRoom[1]].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		try{gameDungeon[currentRoom[0]-1][currentRoom[1]-1].temporaryReveal = true;}catch(ArrayIndexOutOfBoundsException e) {}
+		
+		MapBehavior.exploredMap();
 	}
 }

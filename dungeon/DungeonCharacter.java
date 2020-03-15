@@ -1,7 +1,9 @@
 package dungeon;
 
+import java.io.Serializable;
+
 //Removed comparable implementation, it is not utilized anywhere other than to have the compareTo method
-public abstract class DungeonCharacter
+public abstract class DungeonCharacter implements Serializable
 {
 
 	private String name;
