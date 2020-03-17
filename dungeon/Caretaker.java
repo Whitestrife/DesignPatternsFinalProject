@@ -11,16 +11,10 @@ import java.util.List;
 
 public class Caretaker {
 	
-	FileOutputStream fos;
-	FileInputStream fis;
-	ObjectOutputStream oos;
-	ObjectInputStream ois;
-	private List<Memento> mementoList = new ArrayList<Memento>();
-	
-	public Caretaker() {
-		mementoList.add(new Memento(new State(null, null, null)));
-		mementoList.add(new Memento(new State(null, null, null)));
-	}
+	private FileOutputStream fos;
+	private FileInputStream fis;
+	private ObjectOutputStream oos;
+	private ObjectInputStream ois;
 	
 	public void add(Memento newMem, int index) {
 		

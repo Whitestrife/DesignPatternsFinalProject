@@ -2,7 +2,7 @@ package dungeon;
 
 public class SaveLoadSystem {
 	
-public static void saveGame() {
+	public static void saveGame() {
 		
 		System.out.println("Welcome to the Save Menu!\n"
 				 + "Choose your Slot!\n"
