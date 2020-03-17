@@ -5,7 +5,7 @@ public abstract class Hero extends DungeonCharacter
 	private double chanceToBlock, trueBlock;
 	private int numTurns, cooldownTimer, timerMax;
 	private ItemBag itemBag;
-	protected boolean loading, hadEncapsulation, hadAbstraction, hadPolymorphism, hadInheritance = false;
+	protected boolean hadEncapsulation, hadAbstraction, hadPolymorphism, hadInheritance = false;
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
@@ -128,10 +128,9 @@ public abstract class Hero extends DungeonCharacter
 		}
 		
 	}
-	//Inputting 37 when prompted outside of combat will unlock the Hidden Cheats Menu
+	
 	public void nonBattleChoices() {
 		
-			loading = false;
 			int choice;
 			do
 			{
@@ -148,10 +147,6 @@ public abstract class Hero extends DungeonCharacter
 				MapBehavior.resetVisionPotion();
 
 				choice = GameStateManager.getInt();
-				
-				if(choice == 37 && loading == true) {
-					break;
-				}
 		    	
 				switch (choice)
 				{
