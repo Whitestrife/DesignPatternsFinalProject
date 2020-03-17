@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class DungeonAdventure {
 	
+	//Cole Wolff: I predominately worked on the code of the project. Put in a lot of work on the extra elements and flair.
+	
 	//Hidden Menu Code is 37
 	public static void main(String[] args)
 	{
