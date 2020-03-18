@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class DungeonAdventure {
 	
 	//Cole Wolff: I predominately worked on the code of the project. Put in a lot of work on the extra elements and flair.
-		//Worked mostly on Equipment/Item/Save Systems
+		//Most of my time spent on Equipment/Item/Save Systems
 	
-	//Tyler Rettkowski: I Worked on the Junit tests and did some work on the refactors from the original assignment.
+	//Tyler Rettkowski: I Worked on the JUnit tests and did significant work on the refactors and code clean-up discussions.
 	
-  //Gaven Elder: I worked mainly with getting UML up and running.
+  	//Gaven Elder: I worked mainly with getting the base UML up and running. Alongside playtesting and code reviews.
   
 	//Hidden Menu Code is 37
 	public static void main(String[] args)
