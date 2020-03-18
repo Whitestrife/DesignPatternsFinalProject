@@ -9,8 +9,8 @@ public class DungeonAdventure {
 	
 	//Tyler Rettkowski: I Worked on the Junit tests and did some work on the refactors from the original assignment.
 	
-	//Gaven Elder: I worked mainly with getting UML up and running.
-	
+  //Gaven Elder: I worked mainly with getting UML up and running.
+  
 	//Hidden Menu Code is 37
 	public static void main(String[] args)
 	{

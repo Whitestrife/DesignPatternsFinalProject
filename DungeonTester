@@ -1,0 +1,112 @@
+package dungeon;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.Scanner;
+
+class DungeonTester {
+	
+	Monster testGremlin;
+	Monster testOgre;
+	Monster testSkeleton;
+	Monster testConcreteMinotaur;
+	Hero Warrior;
+	Hero Sorceress;
+	Hero Thief;
+	Hero Fighter;
+	
+
+	@BeforeEach
+	void setUp() throws Exception {
+		this.testGremlin = new Gremlin();
+		this.testOgre = new Ogre();
+		this.testSkeleton = new Skeleton();
+		this.testConcreteMinotaur = new ConcreteMinotaur();
+		this.Sorceress = new Sorceress();
+		this.Warrior = new Warrior();
+		this.Thief = new Thief();
+		this.Fighter = new Fighter();
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		this.testGremlin = new Gremlin();
+		this.testOgre = new Ogre();
+		this.testSkeleton = new Skeleton();
+		this.testConcreteMinotaur = new ConcreteMinotaur();
+		this.Sorceress = new Sorceress();
+		this.Warrior = new Warrior();
+		this.Thief = new Thief();
+		this.Fighter = new Fighter();
+	}
+
+	@Test
+	void testAdjustHitpoints() {
+		testGremlin.adjustHitPoints(5);
+		testOgre.adjustHitPoints(-5);
+		testSkeleton.adjustHitPoints(10);
+		testConcreteMinotaur.adjustHitPoints(-10);
+		assertEquals("","");
+		assertEquals("","");
+		assertEquals("","");
+		assertEquals("","");
+	}// how to test void method with only print methods
+	@Test
+	void testHeal() {
+		testGremlin.heal();
+		testOgre.heal();
+		testSkeleton.heal();
+		testConcreteMinotaur.heal();
+		assertEquals("","");
+		assertEquals("","");
+		assertEquals("","");
+		assertEquals("","");
+	}// how to test void method with only print methods
+	@Test
+	void testAttack() {
+		testGremlin.attack(Warrior);
+		testOgre.attack(Warrior);
+		testSkeleton.attack(Warrior);
+		testConcreteMinotaur.attack(Warrior);
+		assertEquals("","");
+		assertEquals("","");
+		assertEquals("","");
+		assertEquals("","");
+	}// how to test void method with only print methods
+	@Test
+	void testIsAlive()
+	{
+		testGremlin.adjustHitPoints(1);
+		testOgre.adjustHitPoints(1);
+		testSkeleton.adjustHitPoints(1);
+		testConcreteMinotaur.adjustHitPoints(1);
+		Warrior.adjustHitPoints(1);
+		Sorceress.adjustHitPoints(1);
+		Thief.adjustHitPoints(1);
+		Fighter.adjustHitPoints(1);
+		assertTrue(testGremlin.isAlive());
+		assertTrue(testOgre.isAlive());
+		assertTrue(testSkeleton.isAlive());
+		assertTrue(testConcreteMinotaur.isAlive());
+		assertTrue(Warrior.isAlive());
+		assertTrue(Sorceress.isAlive());
+		assertTrue(Thief.isAlive());
+		assertTrue(Fighter.isAlive()); 
+	}
+	@Test
+	void testPlayAgain()
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Type y for JUNIT test");
+		assertTrue(DungeonAdventure.playAgain(scan));
+		System.out.println("Type n for JUNIT test");
+		assertFalse(DungeonAdventure.playAgain(scan));
+	}
+	
+
+}
