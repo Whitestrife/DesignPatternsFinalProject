@@ -7,6 +7,8 @@ public class DungeonAdventure {
 	//Cole Wolff: I predominately worked on the code of the project. Put in a lot of work on the extra elements and flair.
 		//Worked mostly on Equipment/Item/Save Systems
 	
+	//Tyler Rettkowski: I Worked on the Junit tests and did some work on the refactors from the original assignment.
+	
 	//Hidden Menu Code is 37
 	public static void main(String[] args)
 	{
